@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Hide horizontal scrollbar */
 .hide-scrollbar {
   scrollbar-width: none; /* Firefox */
