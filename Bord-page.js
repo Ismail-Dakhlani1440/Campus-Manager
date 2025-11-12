@@ -1,13 +1,9 @@
   const storedTheme = localStorage.getItem("color-theme");
-  const header = document.getElementsByTagName("h1");
   const commingEvents = document.getElementById("comming-events");
   const activeFormation = document.getElementById("active-formation");
-  const registeredParticipant = document.getElementById(
-    "registered-participant"
-  );
+  const registeredParticipant = document.getElementById("registered-participant");
   const fillingRate = document.getElementById("filling-rate");
 
-  //Fill Rate = (Orders Shipped / Total Orders Placed) x 100
   let numOfEvents = 0;
 
   fetch("evenements.json")
