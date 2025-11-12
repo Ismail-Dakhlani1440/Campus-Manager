@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html class="dark">
+<html lang="fr" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashbord</title>
     <link href="src/output.css" rel="stylesheet" />
     <script src="Bord-page.js" defer></script>
+    <script src="header.js" defer></script>
   </head>
   <body class="bg-[#e0e1ff] dark:bg-[#232438] dark:text-white">
     <header class="bg-[#9A9FFF] sticky top-0 dark:bg-[#373b7b] z-50">
@@ -129,10 +130,10 @@
           </svg>
         </div>
       </nav>
-      <el-dialog>
+      <div>
         <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
           <div tabindex="0" class="fixed inset-0 focus:outline-none">
-            <el-dialog-panel
+            <dialog
               class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#e0e1ff] p-6 sm:max-w-sm sm:ring-1 sm:ring-white dark:bg-[#232438] dark:sm:ring-white"
             >
               <div class="flex items-center justify-between">
@@ -172,10 +173,10 @@
                   </div>
                 </div>
               </div>
-            </el-dialog-panel>
+            </dialog>
           </div>
         </dialog>
-      </el-dialog>
+      </div>
     </header>
 
     <main class="min-h-screen flex flex-col">
@@ -184,24 +185,24 @@
       >
         <div class="flex items-center gap-3 m-1">
           <div
-            class="nav-ele bg-[#e0e1ff] dark:bg-[#232438] h-7 w-60 lg:w-100 rounded-4xl"
+            class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-7 w-60 lg:w-100 rounded-4xl"
           >
             <a href="" class="text-sm ml-2">Dashbord</a>
           </div>
           <div
-            class="nav-ele bg-[#e0e1ff] dark:bg-[#232438] h-7 w-60 lg:w-100 hidden lg:flex rounded-4xl"
+            class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-7 w-60 lg:w-100 hidden lg:flex rounded-4xl"
           >
-            <a href="" class="text-sm ml-2">Notdashbord</a>
+            <a href="" class="text-sm ml-2">Événements</a>
           </div>
           <div
-            class="nav-ele bg-[#e0e1ff] dark:bg-[#232438] h-7 w-60 lg:w-100 hidden lg:flex rounded-4xl"
+            class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-7 w-60 lg:w-100 hidden lg:flex rounded-4xl"
           >
-            <a href="" class="text-sm ml-2">Notdashbord</a>
+            <a href="" class="text-sm ml-2">Formations</a>
           </div>
           <div
-            class="nav-ele bg-[#e0e1ff] dark:bg-[#232438] h-7 w-60 lg:w-100 hidden lg:flex rounded-4xl"
+            class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-7 w-60 lg:w-100 hidden lg:flex rounded-4xl"
           >
-            <a href="" class="text-sm ml-2">Notdashbord</a>
+            <a href="" class="text-sm ml-2">Jeu</a>
           </div>
         </div>
       </div>
@@ -219,22 +220,26 @@
             class="flex gap-10 w-max lg:gap-20 lg:w-auto lg:justify-center lg:flex-wrap"
           >
             <div
-              class="bg-[#868cff] dark:bg-[#23265c] w-80 h-40 rounded-4xl relative"
+              id="comming-events"
+              class="bg-[#868cff] dark:bg-[#23265c] w-80 h-40 rounded-4xl relative flex justify-center items-center"
             >
               <span class="absolute top-5 left-5">Evenement a venir</span>
             </div>
             <div
-              class="bg-[#868cff] dark:bg-[#23265c] w-80 h-40 rounded-4xl relative"
+              id="active-formation"
+              class="bg-[#868cff] dark:bg-[#23265c] w-80 h-40 rounded-4xl relative flex justify-center items-center"
             >
               <span class="absolute top-5 left-5">Formations actives</span>
             </div>
             <div
-              class="bg-[#868cff] dark:bg-[#23265c] w-80 h-40 rounded-4xl relative"
+              id="registered-participant"
+              class="bg-[#868cff] dark:bg-[#23265c] w-80 h-40 rounded-4xl relative flex justify-center items-center"
             >
               <span class="absolute top-5 left-5">Participant inscrits</span>
             </div>
             <div
-              class="bg-[#868cff] dark:bg-[#23265c] w-80 h-40 rounded-4xl relative"
+              id="filling-rate"
+              class="bg-[#868cff] dark:bg-[#23265c] w-80 h-40 rounded-4xl relative flex justify-center items-center"
             >
               <span class="absolute top-5 left-5">Taux de remplissage</span>
             </div>

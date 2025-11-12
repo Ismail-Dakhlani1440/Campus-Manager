@@ -1,24 +1,47 @@
-const htmlElement = document.documentElement;
-const themeToggler = document.getElementById("theme-toggle");
-const themeIconDark = document.getElementById("theme-icon-moon");
-const themeIconLight = document.getElementById("theme-icon-sun");
-const themeIconProp = document.getElementById("theme-icon-prop");
-const navEle = document.querySelectorAll(".nav-ele");
-const storedTheme = localStorage.getItem("color-theme");
-const header = document.getElementsByTagName("h1");
+  const storedTheme = localStorage.getItem("color-theme");
+  const header = document.getElementsByTagName("h1");
+  const commingEvents = document.getElementById("comming-events");
+  const activeFormation = document.getElementById("active-formation");
+  const registeredParticipant = document.getElementById(
+    "registered-participant"
+  );
+  const fillingRate = document.getElementById("filling-rate");
 
-navEle.forEach((element) => {
-  if (!element.textContent.includes(header[0].textContent))
-    element.classList.add("opacity-70");
-});
+  //Fill Rate = (Orders Shipped / Total Orders Placed) x 100
+  let numOfEvents = 0;
 
-themeToggler.addEventListener("click", () => {
-  document.documentElement.classList.toggle("dark");
+  fetch("evenements.json")
+    .then((response) => response.json())
+    .then((myEvent) => {
+      for (const item of myEvent) {
+        numOfEvents++;
+      }
+      commingEvents.innerHTML += `<span class="text-2xl">${numOfEvents}</span>`;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
-  themeIconDark.classList.toggle("hidden");
-  themeIconLight.classList.toggle("hidden");
-  themeIconLight.classList.contains("hidden")
-    ? themeIconProp.setAttribute("fill", "#000000")
-    : themeIconProp.setAttribute("fill", "#FFFFFF");
-});
+  let numOfFormation = 0;
+  let numOfParticipants = 0;
+  let percentOffilling = 0;
+
+  fetch("formations.json")
+    .then((response) => response.json())
+    .then((formation) => {
+      for (const item of formation) {
+        item.participants.forEach((element) => {
+          numOfParticipants++;
+        });
+
+        numOfFormation++;
+      }
+      percentOffilling = (numOfFormation / numOfParticipants) * 100;
+      activeFormation.innerHTML += `<span class="text-2xl">${numOfFormation}</span>`;
+      registeredParticipant.innerHTML += `<span class="text-2xl">${numOfParticipants}</span>`;
+      fillingRate.innerHTML += `<span class="text-2xl">${percentOffilling}%</span>`;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 
