@@ -16,7 +16,6 @@
       >
         <div class="flex lg:flex-1">
           <a href="#" class="-m-1.5 p-1.5">
-            <span class="sr-only">Your Company</span>
             <span
               class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
               >Campus Manager</span
@@ -24,13 +23,10 @@
           </a>
         </div>
         <div class="flex lg:hidden">
-          <button
-            type="button"
-            command="show-modal"
-            commandfor="mobile-menu"
+          <div
+            id="mobile-button"
             class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white dark:text-white"
           >
-            <span class="sr-only">Open main menu</span>
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -46,27 +42,25 @@
                 stroke-linejoin="round"
               />
             </svg>
-          </button>
+          </div>
         </div>
         <div class="relative hidden lg:flex flex-col">
-          <div id="btn">
+          <div id="profile-button">
             <img
               class="w-10 h-10 me-2 rounded-full"
               src="public/Portrait_Placeholder.png"
               alt="Portrait_Placeholder"
             />
           </div>
-
-          <!-- Dropdown menu -->
           <div
-            id="dropdownUsers"
-            class="absolute hidden top-full left-0 mt-2 z-50 bg-white rounded-lg shadow-sm w-60 dark:bg-gray-700"
+            id="dropdown-users"
+            class="absolute hidden top-full left-0 mt-2 z-50 bg-[#e0e1ff] rounded-lg shadow-sm w-60 dark:bg-[#232438]"
           >
             <ul
               class="py-2 overflow-y-auto text-gray-700 dark:text-gray-200"
               aria-labelledby="dropdownUsersButton"
             >
-              <li>
+              <li class="opt" nav-type="admin">
                 <a
                   href="#"
                   class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
@@ -76,10 +70,10 @@
                     src="/public/Portrait_Placeholder.png"
                     alt="User"
                   />
-                  Admin
+                  Administrateur
                 </a>
               </li>
-              <li>
+              <li class="opt" nav-type="student">
                 <a
                   href="#"
                   class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
@@ -89,10 +83,10 @@
                     src="/public/Portrait_Placeholder.png"
                     alt="User"
                   />
-                  Student
+                  Étudiant
                 </a>
               </li>
-              <li>
+              <li class="opt" nav-type="client">
                 <a
                   href="#"
                   class="flex items-center px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
@@ -102,12 +96,13 @@
                     src="/public/Portrait_Placeholder.png"
                     alt="User"
                   />
-                  Guest
+                  Client
                 </a>
               </li>
             </ul>
           </div>
         </div>
+
         <div id="theme-toggle" class="absolute right-0 hidden lg:flex">
           <svg
             id="theme-icon-prop"
@@ -130,64 +125,41 @@
           </svg>
         </div>
       </nav>
-      <div>
-        <dialog id="mobile-menu" class="backdrop:bg-transparent lg:hidden">
-          <div tabindex="0" class="fixed inset-0 focus:outline-none">
-            <dialog
-              class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#e0e1ff] p-6 sm:max-w-sm sm:ring-1 sm:ring-white dark:bg-[#232438] dark:sm:ring-white"
-            >
-              <div class="flex items-center justify-between">
-                <button
-                  type="button"
-                  command="close"
-                  commandfor="mobile-menu"
-                  class="-m-2.5 rounded-md p-2.5 text-white dark:text-white"
-                >
-                  <span class="sr-only">Close menu</span>
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="gray"
-                    stroke-width="1.5"
-                    data-slot="icon"
-                    aria-hidden="true"
-                    class="size-6"
-                  >
-                    <path
-                      d="M6 18 18 6M6 6l12 12"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <div class="mt-6 flow-root">
-                <div class="-my-6 divide-y dark:divide-white">
-                  <div class="space-y-2 py-6"></div>
-                  <div class="py-6">
-                    <a
-                      href="#"
-                      class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold dark:text-white dark:hover:bg-white"
-                      >Log out</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </dialog>
-          </div>
-        </dialog>
-      </div>
     </header>
+    <div class="bg-[#9A9FFF] dark:bg-[#373b7b] rounded-4xl mx-15 hidden">
+      <div class="flex flex-col items-center justify-center gap-3 m-1">
+        <div
+          class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-15 w-90 flex justify-center items-center rounded-4xl"
+        >
+          <a href="Bord-page.html" class="text-sm ml-2">Dashbord</a>
+        </div>
+        <div
+          class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-15 w-90 flex justify-center items-center rounded-4xl"
+        >
+          <a href="" class="text-sm ml-2">Événements</a>
+        </div>
+        <div
+          class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-15 w-90 flex justify-center items-center rounded-4xl"
+        >
+          <a href="" class="text-sm ml-2">Formations</a>
+        </div>
+        <div
+          class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-15 w-90 flex justify-center items-center rounded-4xl"
+        >
+          <a href="jeux.html" class="text-sm ml-2">Jeu</a>
+        </div>
+      </div>
+    </div>
 
     <main class="min-h-screen flex flex-col">
       <div
-        class="nav-bar bg-[#9A9FFF] dark:bg-[#373b7b] rounded-4xl lg:my-15 lg:mx-30 m-5"
+        class="bg-[#9A9FFF] dark:bg-[#373b7b] rounded-4xl lg:my-15 lg:mx-30 m-5"
       >
         <div class="flex items-center gap-3 m-1">
           <div
             class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-7 w-60 lg:w-100 rounded-4xl"
           >
-            <a href="" class="text-sm ml-2">Dashbord</a>
+            <a href="Bord-page.html" class="text-sm ml-2">Dashbord</a>
           </div>
           <div
             class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-7 w-60 lg:w-100 hidden lg:flex rounded-4xl"
@@ -202,7 +174,7 @@
           <div
             class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-7 w-60 lg:w-100 hidden lg:flex rounded-4xl"
           >
-            <a href="" class="text-sm ml-2">Jeu</a>
+            <a href="jeux.html" class="text-sm ml-2">Jeu</a>
           </div>
         </div>
       </div>
