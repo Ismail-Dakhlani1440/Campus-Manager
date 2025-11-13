@@ -1,15 +1,43 @@
-const themeToggler = document.getElementById("theme-toggle");
-const themeIconDark = document.getElementById("theme-icon-moon");
-const themeIconLight = document.getElementById("theme-icon-sun");
-const themeIconProp = document.getElementById("theme-icon-prop");
-const storedTheme = localStorage.getItem("color-theme");
-const htmlElement = document.documentElement;
+  const storedTheme = localStorage.getItem("color-theme");
+  const commingEvents = document.getElementById("comming-events");
+  const activeFormation = document.getElementById("active-formation");
+  const registeredParticipant = document.getElementById("registered-participant");
+  const fillingRate = document.getElementById("filling-rate");
 
-themeToggler.addEventListener("click", () => {
-  document.documentElement.classList.toggle("dark");
-  themeIconDark.classList.toggle("hidden");
-  themeIconLight.classList.toggle("hidden");
-  themeIconLight.classList.contains("hidden")
-    ? themeIconProp.setAttribute("fill", "#FFFFFF")
-    : themeIconProp.setAttribute("fill", "#000000");
-});
+  let numOfEvents = 0;
+
+  fetch("evenements.json")
+    .then((response) => response.json())
+    .then((myEvent) => {
+      for (const item of myEvent) {
+        numOfEvents++;
+      }
+      commingEvents.innerHTML += `<span class="text-2xl">${numOfEvents}</span>`;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
+  let numOfFormation = 0;
+  let numOfParticipants = 0;
+  let percentOffilling = 0;
+
+  fetch("formations.json")
+    .then((response) => response.json())
+    .then((formation) => {
+      for (const item of formation) {
+        item.participants.forEach((element) => {
+          numOfParticipants++;
+        });
+
+        numOfFormation++;
+      }
+      percentOffilling = (numOfFormation / numOfParticipants) * 100;
+      activeFormation.innerHTML += `<span class="text-2xl">${numOfFormation}</span>`;
+      registeredParticipant.innerHTML += `<span class="text-2xl">${numOfParticipants}</span>`;
+      fillingRate.innerHTML += `<span class="text-2xl">${percentOffilling}%</span>`;
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
