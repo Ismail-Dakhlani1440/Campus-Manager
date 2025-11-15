@@ -10,8 +10,33 @@ const dropdownUsers = document.getElementById("dropdown-users");
 const options = document.querySelectorAll(".opt");
 let user;
 
+// mobile menu toggle
+const mobileButton = document.getElementById("mobile-button");
+const mobileMenu = document.getElementById("mobile-menu");
+const themeToggleMobile = document.getElementById("theme-toggle-mobile");
+const profileButtonMobile = document.getElementById("profile-button-mobile");
+
+mobileButton.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+});
+
+// mobile theme toggle (reuses same logic as desktop)
+themeToggleMobile.addEventListener("click", () => {
+  const isDark = html.classList.toggle("dark");
+
+  iconMoon.classList.toggle("hidden", isDark);
+  iconSun.classList.toggle("hidden", !isDark);
+  iconProp.setAttribute("fill", isDark ? "#FFFFFF" : "#000000");
+  localStorage.theme = isDark ? "dark" : "light";
+});
+
+// mobile profile dropdown handler
+profileButtonMobile.addEventListener("click", () => {
+  dropdownUsers.classList.toggle("hidden");
+});
+
 //set tab opacity based on active header
-navTabs.forEach(tab => {
+navTabs.forEach((tab) => {
   if (!tab.textContent.includes(header.textContent)) {
     tab.classList.add("opacity-70");
   }
