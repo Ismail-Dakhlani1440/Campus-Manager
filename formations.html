@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script defer src="file2.js"></script>
+    <link href="src/output.css" rel="stylesheet" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      section {
+        position: relative;
+      }
+      #form {
+        display: none;
+        
+      }
+      #form-container {
+        width: 50%;
+        background-color: #c0c0f6;
+        font-size: 18px;
+        font-weight: 700;
+        position: absolute;
+        left: 25%;
+        top: 70px;
+        border-radius: 10px;
+        padding: 10px;
+      }
+      input {
+        width: 100%;
+        padding: 13px;
+        margin: 19px 0;
+        border: none;
+        border-radius: 10px;
+        background: #f1f1f1;
+      }
+
+      .btn {
+        background-color: #8f8ff4;
+        color: rgb(12, 12, 12);
+        padding: 16px 20px;
+        cursor: pointer;
+        width: 40%;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        position: relative;
+        left: 0;
+        bottom: 0;
+      }
+      .container-btn {
+        text-align: center;
+      }
+      @media (max-width: 768px) {
+        #form-container {
+          width: 96%;
+          background-color: #c0c0f6;
+          font-size: 18px;
+          font-weight: 400;
+          position: absolute;
+          left: 2%;
+          top: 95px;
+          border-radius: 10px;
+          padding: 10px;
+        }
+        #btn-ajouter {
+          font-size: 10px;
+          width: 25%;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-[#ddddf5]">
+    <header class="h-20 bg-[#8086f4]"></header>
+    <section class="p-5">
+      <div class="sm:text-xs md:text-lg">
+        <button
+          id="btn-ajouter"
+          class="p-2 w-[20%] bg-[#ddddf5] text-center border-solid border-2 border-[#040dc9] rounded-3xl cursor-pointer"
+        >
+          +Ajouter Formation
+        </button>
+      </div>
+      <div>
+        <h1 class="text-3xl font-bold mb-5 text-center">Notre Formations</h1>
+      </div>
+      <div>
+        <div
+          id="formations-container"
+          class="flex flex-wrap gap-5 justify-center"
+        ></div>
+
+        <div id="form">
+          <form id="form-container">
+            <input
+              id="theme"
+              class="input"
+              type="text"
+              placeholder="Enter theme"
+              required
+            />
+            <input
+              id="trainer"
+              class="input"
+              type="text"
+              placeholder="Enter formateur"
+              required
+            />
+            <input
+              id="duration"
+              class="input"
+              type="number"
+              placeholder="Enter duration"
+              required
+            />
+            <input
+              id="capacity"
+              class="input"
+              type="number"
+              placeholder="Enter capacity"
+              required
+            />
+
+            <div class="container-btn">
+              <button type="submit" class="btn" id="btn">Submit</button>
+              <button type="click" class="btn" id="close">Close</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <footer class="h-20 bg-[#8086f4]"></footer>
+  </body>
+</html>
