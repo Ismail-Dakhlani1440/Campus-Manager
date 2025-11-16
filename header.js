@@ -33,7 +33,6 @@ if (localStorage.theme === "light") {
 //theme toggle handler
 themeToggle.addEventListener("click", () => {
   const isDark = html.classList.toggle("dark");
-
   iconMoon.classList.toggle("hidden", isDark);
   iconSun.classList.toggle("hidden", !isDark);
   iconProp.setAttribute("fill", isDark ? "#FFFFFF" : "#000000");
@@ -50,19 +49,19 @@ options.forEach((element) => {
       case "admin":
         console.log("admin");
         user = "admin";
-        localStorage.setItem("account", JSON.stringify(user));
+        localStorage.setItem("account",(user));
         location.reload();
         break;
 
       case "student":
         user = "student";
-        localStorage.setItem("account", JSON.stringify(user));
+        localStorage.setItem("account",(user));
         location.reload();
         break;
 
       case "client":
         user = "client";
-        localStorage.setItem("account", JSON.stringify(user));
+        localStorage.setItem("account",(user));
         location.reload();
         break;
     }

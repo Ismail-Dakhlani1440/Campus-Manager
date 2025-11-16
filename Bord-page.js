@@ -6,7 +6,7 @@
 
   let numOfEvents = 0;
 
-  fetch("evenements.json")
+  fetch("Evenment.json")
     .then((response) => response.json())
     .then((myEvent) => {
       for (const item of myEvent) {
