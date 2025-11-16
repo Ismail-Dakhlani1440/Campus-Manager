@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="fr" class="dark">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="src/output.css" rel="stylesheet" />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="src/output.css" rel="stylesheet">
     <title>manager_cumpus</title>
-    <script src="header.js" defer></script>
-  </head>
+    <script defer src="part.js"></script>
+    <script defer src="header.js"></script>
+</head>
   <body class="bg-[#e0e1ff] dark:bg-[#232438] dark:text-white">
     <header class="bg-[#9A9FFF] sticky top-0 dark:bg-[#373b7b] z-50">
       <nav
@@ -125,90 +126,30 @@
         </div>
       </nav>
     </header>
-    <div class="bg-[#9A9FFF] dark:bg-[#373b7b] rounded-4xl mx-15 hidden">
-      <div class="flex flex-col items-center justify-center gap-3 m-1">
-        <div
-          class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-15 w-90 flex justify-center items-center rounded-4xl"
-        >
-          <a href="Bord-page.html" class="text-sm ml-2">Dashbord</a>
-        </div>
-        <div
-          class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-15 w-90 flex justify-center items-center rounded-4xl"
-        >
-          <a href="" class="text-sm ml-2">Événements</a>
-        </div>
-        <div
-          class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-15 w-90 flex justify-center items-center rounded-4xl"
-        >
-          <a href="" class="text-sm ml-2">Formations</a>
-        </div>
-        <div
-          class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-15 w-90 flex justify-center items-center rounded-4xl"
-        >
-          <a href="jeux.html" class="text-sm ml-2">Jeu</a>
-        </div>
-      </div>
-    </div>
 
-    <main class="min-h-screen flex flex-col">
-      <div
-        class="nav-bar bg-[#9A9FFF] dark:bg-[#373b7b] rounded-4xl lg:my-15 lg:mx-30 m-5"
-      >
-        <div class="flex items-center gap-3 m-1">
-          <div
-            class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-7 w-60 lg:w-100 hidden lg:flex rounded-4xl"
-          >
-            <a href="Bord-page.html" class="text-sm ml-2">Dashbord</a>
-          </div>
-          <div
-            class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-7 w-60 lg:w-100 hidden lg:flex rounded-4xl"
-          >
-            <a href="" class="text-sm ml-2">Événements</a>
-          </div>
-          <div
-            class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-7 w-60 lg:w-100 hidden lg:flex rounded-4xl"
-          >
-            <a href="" class="text-sm ml-2">Formations</a>
-          </div>
-          <div
-            class="nav-tab bg-[#e0e1ff] dark:bg-[#232438] h-7 w-60 lg:w-100 rounded-4xl"
-          >
-            <a href="jeux.html" class="text-sm ml-2">Jeu</a>
-          </div>
-        </div>
-      </div>
-      <section
-        class="global bg-[#e0e1ff] dark:bg-[#232438] dark:text-white h-[90vh] w-[100%] flex flex-col gap-3 items-center justify-center"
-      >
-        <h1>Jeu</h1>
-        <div
-          class="progress-border h-5 w-80 border border-[#232438] rounded-[20px]"
-        >
-          <div
-            class="dynamique-progress h-5 w-50 bg-[#232438] rounded-[20px]"
-          ></div>
+
+    <section class="global bg-[#e0e1ff] dark:bg-[#232438] dark:text-white h-[90vh] w-[100%] flex flex-col gap-3 items-center justify-center ">
+
+        <div class="progress-border h-5 w-[80%] border border-[#232438] rounded-[20px]">
+            <div id="prog" class="dynamique-progress h-5 w-[0%] bg-[#232438] rounded-[20px]"></div>
         </div>
 
-        <div
-          class="info h-15 flex gap-19 flex justify-center items-center rounded-[20px]"
-        >
-          <div id="repetition" class="text-[20px]">10</div>
-          <div id="prosontage" class="text-[20px]">50%</div>
-          <button id="help" class="text-[20px]">Aide</button>
+
+        <div  class="info h-15 flex gap-19 flex justify-center items-center rounded-[20px]">
+            <div id="repetition" class="text-[20px]">0</div>
+            <div id="level" class="text-[20px]">0</div>
+            <button id="help" class=" text-[20px]">Aide</button>
         </div>
 
-        <div
-          class="bar-aff bg-[#9A9FFF] border h-20 w-auto p-5 flex flex-col justify-center items-center rounded-[20px]"
-        >
-          <p id="phrese">- - - - - - - - - - - -</p>
-          <p id="mot">_____________</p>
+
+        <div class="bar-aff bg-[#9A9FFF] border h-20 w-auto p-5 flex flex-col justify-center items-center rounded-[20px]">
+            <p id="phrese"></p>
+            <p id="mot"></p>
         </div>
 
-        <div
-          id="bnt"
-          class="alpha bg-[#232438] rounded-[12px] h-80 w-90 flex flex-wrap gap-x-3 justify-center sm:w-auto h-auto md:w-[60%] max-w-[90%] h-[35%] lg:w-[80%] h-auto p-[2vw] content-center gap-y-3"
-        >
-          <!-- <button class="btn  bg-[#9A9FFF] w-12 h-12 rounded-[40PX]">A</button>
+
+        <div id="bnt" class="alpha bg-[#232438] rounded-[12px] h-80 w-90 flex flex-wrap gap-x-3 justify-center sm:w-auto h-auto md:w-[60%] max-w-[90%] h-[35%] lg:w-[80%] h-auto p-[2vw] content-center gap-y-3">
+            <!-- <button class="btn  bg-[#9A9FFF] w-12 h-12 rounded-[40PX]">A</button>
             <button class="btn  bg-[#9A9FFF] w-12 h-12 rounded-[40px]">B</button>
             <button class="btn  bg-[#9A9FFF] w-12 h-12 rounded-[40PX]">C</button>
             <button class="btn  bg-[#9A9FFF] w-12 h-12 rounded-[40PX]">D</button>
@@ -236,15 +177,11 @@
             <button class="btn  bg-[#9A9FFF] w-12 h-12 rounded-[40PX]">Z</button> -->
         </div>
 
-        <button
-          id="next"
-          class="next h-[40px] w-[90PX] bg-[#9A9FFF] rounded-[10px]"
-        >
-          suivant
-        </button>
-      </section>
-    </main>
+      <button id="next" class="next h-[40px] w-[90PX] bg-[#9A9FFF] rounded-[10px]" >suivant</button>
 
+
+
+    </section>
     <footer class="bg-[#6E76FF] dark:bg-[#23265c]">
       <div class="w-full max-w-7xl mx-auto p-4 md:py-8">
         <div class="sm:flex sm:items-center sm:justify-between">
@@ -284,6 +221,11 @@
         >
       </div>
     </footer>
-    <script src="part.js"></script>
-  </body>
+    
+</body>
+
 </html>
+
+
+
+
